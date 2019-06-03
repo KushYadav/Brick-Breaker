@@ -2,11 +2,11 @@ package com.example.hp.bb;
 
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
 
 import com.example.hp.bb.display.Display;
 import com.example.hp.bb.gfx.Assets;
-import com.example.hp.bb.gfx.ImageLoader;
+import com.example.hp.bb.states.CurrentState;
+import com.example.hp.bb.states.GameState;
 
 public class Game implements Runnable {
 
@@ -19,7 +19,9 @@ public class Game implements Runnable {
 
 	private BufferStrategy bs;
 	private Graphics g;
-	private BufferedImage bi;
+
+	private Handler handler;
+	private GameState gameState;
 
 	public Game(String name, int width, int height) {
 		this.name = name;
@@ -31,7 +33,9 @@ public class Game implements Runnable {
 	private void init() {
 		Assets.init();
 		display = new Display(name, width, height);
-		bi = ImageLoader.loadImage("/textures/Tile.png");
+		handler = new Handler(this);
+		gameState = new GameState(handler);
+		CurrentState.setCurrentState(gameState);
 	}
 
 	@Override
@@ -97,9 +101,9 @@ public class Game implements Runnable {
 			return;
 		}
 		g = bs.getDrawGraphics();
+		g.clearRect(0, 0, width, height);
 
 		// Draw Here
-		g.fillRect(0, 0, width, height);
 		g.drawImage(Assets.tile[1], 0, 0, 100, 100, null);
 
 		bs.show();
