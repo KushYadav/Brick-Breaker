@@ -104,7 +104,11 @@ public class Game implements Runnable {
 		g.clearRect(0, 0, width, height);
 
 		// Draw Here
-		g.drawImage(Assets.tile[1], 0, 0, 100, 100, null);
+		if (CurrentState.getCurrentState() != null) {
+			CurrentState.getCurrentState().render(g);
+		}
+
+//		g.drawImage(Assets.tile[1], 0, 0, 100, 100, null);
 
 		bs.show();
 		g.dispose();
