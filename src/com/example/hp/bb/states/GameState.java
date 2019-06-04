@@ -3,27 +3,27 @@ package com.example.hp.bb.states;
 import java.awt.Graphics;
 
 import com.example.hp.bb.Handler;
-import com.example.hp.bb.entities.dynamics.HoverBoard;
-import com.example.hp.bb.tiles.Tile;
+import com.example.hp.bb.worlds.World;
 
 public class GameState extends State {
 
-	private HoverBoard hoverBoard;
+	private World world;
 
 	public GameState(Handler handler) {
 		super(handler);
-		hoverBoard = new HoverBoard(handler, 0, 0, 50, 50);
+		world = new World(handler);
+		handler.setWorld(world);
+
 	}
 
 	@Override
 	public void tick() {
-		hoverBoard.tick();
+		world.tick();
 	}
 
 	@Override
 	public void render(Graphics g) {
-		hoverBoard.render(g);
-		Tile.orangeTile.render(g, 0, 400);
+		world.render(g);
 	}
 
 }

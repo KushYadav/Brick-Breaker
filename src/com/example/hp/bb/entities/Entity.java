@@ -1,6 +1,8 @@
 package com.example.hp.bb.entities;
 
+import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 import com.example.hp.bb.Handler;
 
@@ -11,6 +13,7 @@ public abstract class Entity {
 	protected float x;
 	protected float y;
 	protected int width, height;
+	protected Rectangle bounds;
 
 	public Entity(Handler handler, float x, float y, int width, int height) {
 		this.handler = handler;
@@ -23,4 +26,13 @@ public abstract class Entity {
 	public abstract void tick();
 
 	public abstract void render(Graphics g);
+
+	public Rectangle getCollisionBounds() {
+		return new Rectangle((int) x, (int) y, width, height);
+	}
+
+	public void showCollisionBounds(Graphics g) {
+		g.setColor(Color.BLUE);
+		g.fillRect((int) x, (int) y, width, height);
+	}
 }

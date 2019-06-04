@@ -10,19 +10,29 @@ public class DynamicEntity extends Entity {
 	public static final float DEFAULT_SPEED = 3.0f;
 	public static final int DEFAULT_WIDTH = 32, DEFAULT_HEIGHT = 32;
 	protected float speed;
-	protected float xMove;
+	protected float xMove, yMove;
 	protected int health;
 
 	public DynamicEntity(Handler handler, float x, float y, int width, int height) {
 		super(handler, x, y, width, height);
 		this.health = DEFAULT_HEALTH;
 		this.speed = DEFAULT_SPEED;
-		xMove = 0;
+		xMove = -5;
+		yMove = -5;
 
+	}
+
+	public void move() {
+		xMove();
+		yMove();
 	}
 
 	public void xMove() {
 		x += xMove;
+	}
+
+	public void yMove() {
+		y += yMove;
 	}
 
 	@Override
