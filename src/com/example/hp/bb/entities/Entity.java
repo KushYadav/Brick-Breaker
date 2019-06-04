@@ -7,7 +7,7 @@ import com.example.hp.bb.Handler;
 public abstract class Entity {
 
 	public static final int DEFAULT_HEALTH = 100;
-	private Handler handler;
+	protected Handler handler;
 	protected float x;
 	protected float y;
 	protected int width, height;

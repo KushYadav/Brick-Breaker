@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import com.example.hp.bb.Handler;
 import com.example.hp.bb.entities.dynamics.HoverBoard;
+import com.example.hp.bb.tiles.Tile;
 
 public class GameState extends State {
 
@@ -22,6 +23,7 @@ public class GameState extends State {
 	@Override
 	public void render(Graphics g) {
 		hoverBoard.render(g);
+		Tile.orangeTile.render(g, 0, 400);
 	}
 
 }

@@ -125,4 +125,94 @@ public class Game implements Runnable {
 		g.dispose();
 	}
 
+	// Getters and Setters
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public Display getDisplay() {
+		return display;
+	}
+
+	public void setDisplay(Display display) {
+		this.display = display;
+	}
+
+	public boolean isRunning() {
+		return running;
+	}
+
+	public void setRunning(boolean running) {
+		this.running = running;
+	}
+
+	public Thread getThread() {
+		return thread;
+	}
+
+	public void setThread(Thread thread) {
+		this.thread = thread;
+	}
+
+	public BufferStrategy getBs() {
+		return bs;
+	}
+
+	public void setBs(BufferStrategy bs) {
+		this.bs = bs;
+	}
+
+	public Graphics getG() {
+		return g;
+	}
+
+	public void setG(Graphics g) {
+		this.g = g;
+	}
+
+	public Handler getHandler() {
+		return handler;
+	}
+
+	public void setHandler(Handler handler) {
+		this.handler = handler;
+	}
+
+	public GameState getGameState() {
+		return gameState;
+	}
+
+	public void setGameState(GameState gameState) {
+		this.gameState = gameState;
+	}
+
+	public KeyManager getKeyManager() {
+		return keyManager;
+	}
+
+	public void setKeyManager(KeyManager keyManager) {
+		this.keyManager = keyManager;
+	}
+
 }

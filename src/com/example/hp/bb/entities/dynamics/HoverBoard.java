@@ -13,8 +13,18 @@ public class HoverBoard extends DynamicEntity {
 	}
 
 	public void tick() {
-		if (KeyManager.A) {
-			System.out.println("A is Pressed");
+		getInput();
+		xMove();
+	}
+
+	private void getInput() {
+		xMove = 0;
+
+		if (handler.getKeyManager().A || handler.getKeyManager().left) {
+			xMove = -speed;
+		}
+		if (handler.getKeyManager().D || handler.getKeyManager().right) {
+			xMove = speed;
 		}
 	}
 
