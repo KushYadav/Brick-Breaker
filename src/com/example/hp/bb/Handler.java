@@ -1,5 +1,7 @@
 package com.example.hp.bb;
 
+import com.example.hp.bb.entities.dynamics.Ball;
+import com.example.hp.bb.entities.dynamics.HoverBoard;
 import com.example.hp.bb.input.KeyManager;
 import com.example.hp.bb.worlds.World;
 
@@ -30,6 +32,14 @@ public class Handler {
 
 	public void setWorld(World world) {
 		this.world = world;
+	}
+
+	public HoverBoard getHoverBoard() {
+		return world.getHoverBoard();
+	}
+
+	public Ball getBall() {
+		return world.getBall();
 	}
 
 }

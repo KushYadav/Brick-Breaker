@@ -17,17 +17,16 @@ public class Ball extends DynamicEntity {
 	}
 
 	public void getInput() {
-
-		if (x == 0 || x == handler.getWidth() - width) {
+		if (x <= 0 || x >= handler.getWidth() - width) {
 			xMove = -xMove;
 		}
-		if (y == 0 || y == handler.getHeight() - height) {
+		if (y <= 0) {
 			yMove = -yMove;
 		}
 	}
 
 	public void render(Graphics g) {
-		g.drawImage(Assets.tile[14], (int) x, (int) y, width, height, null);
+		g.drawImage(Assets.ball, (int) x, (int) y, width, height, null);
 	}
 
 }

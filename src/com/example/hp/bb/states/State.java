@@ -6,7 +6,7 @@ import com.example.hp.bb.Handler;
 
 public abstract class State {
 
-	private Handler handler;
+	protected Handler handler;
 
 	public State(Handler handler) {
 		this.handler = handler;

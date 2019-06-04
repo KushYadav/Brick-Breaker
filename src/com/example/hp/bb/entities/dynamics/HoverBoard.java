@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import com.example.hp.bb.Handler;
 import com.example.hp.bb.gfx.Assets;
+import com.example.hp.bb.input.KeyManager;
 
 public class HoverBoard extends DynamicEntity {
 
@@ -18,17 +19,15 @@ public class HoverBoard extends DynamicEntity {
 
 	private void getInput() {
 		xMove = 0;
-
-		if (handler.getKeyManager().A || handler.getKeyManager().left) {
+		if (KeyManager.A || KeyManager.left) {
 			xMove = -speed;
 		}
-		if (handler.getKeyManager().D || handler.getKeyManager().right) {
+		if (KeyManager.D || KeyManager.right) {
 			xMove = speed;
 		}
 	}
 
 	public void render(Graphics g) {
-		g.drawImage(Assets.tile[4], (int) x, (int) y, width, height, null);
-		showCollisionBounds(g);
+		g.drawImage(Assets.brick, (int) x, (int) y, width, height, null);
 	}
 }

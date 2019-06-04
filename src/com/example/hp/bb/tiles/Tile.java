@@ -10,7 +10,7 @@ public class Tile {
 	public static Tile[] tile = new Tile[256];
 	public static Tile orangeTile = new Tile(Assets.tile[0], 0);
 
-	public static final int DEFAULT_WIDTH = 32, DEFAULT_HEIGHT = 32;
+	public static final int DEFAULT_WIDTH = 64, DEFAULT_HEIGHT = 64;
 	private BufferedImage texture;
 	private int id;
 
