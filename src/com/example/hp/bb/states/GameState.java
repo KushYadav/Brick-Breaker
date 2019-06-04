@@ -16,7 +16,7 @@ public class GameState extends State {
 
 	@Override
 	public void tick() {
-
+		hoverBoard.tick();
 	}
 
 	@Override

@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import com.example.hp.bb.Handler;
 import com.example.hp.bb.gfx.Assets;
+import com.example.hp.bb.input.KeyManager;
 
 public class HoverBoard extends DynamicEntity {
 
@@ -12,7 +13,9 @@ public class HoverBoard extends DynamicEntity {
 	}
 
 	public void tick() {
-
+		if (KeyManager.A) {
+			System.out.println("A is Pressed");
+		}
 	}
 
 	public void render(Graphics g) {

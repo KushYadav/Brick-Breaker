@@ -1,10 +1,12 @@
 package com.example.hp.bb;
 
 import java.awt.Graphics;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 
 import com.example.hp.bb.display.Display;
 import com.example.hp.bb.gfx.Assets;
+import com.example.hp.bb.input.KeyManager;
 import com.example.hp.bb.states.CurrentState;
 import com.example.hp.bb.states.GameState;
 
@@ -23,6 +25,8 @@ public class Game implements Runnable {
 	private Handler handler;
 	private GameState gameState;
 
+	private KeyManager keyManager;
+
 	public Game(String name, int width, int height) {
 		this.name = name;
 		this.width = width;
@@ -32,10 +36,13 @@ public class Game implements Runnable {
 
 	private void init() {
 		Assets.init();
+		keyManager = new KeyManager();
 		display = new Display(name, width, height);
 		handler = new Handler(this);
 		gameState = new GameState(handler);
 		CurrentState.setCurrentState(gameState);
+		display.getFrame().addKeyListener(keyManager);
+		display.getCanvas().addKeyListener(keyManager);
 	}
 
 	@Override
@@ -91,6 +98,10 @@ public class Game implements Runnable {
 	}
 
 	public void tick() {
+		keyManager.tick();
+		if (CurrentState.getCurrentState() != null) {
+			CurrentState.getCurrentState().tick();
+		}
 
 	}
 
